@@ -1,0 +1,25 @@
+﻿JWT Uygulamasi Icın 
+1- Microsoft.AspNetCore.Authentication.JwtBearer 
+paketini kurulmasi gerekir
+
+JWT Parametreleri Nelerdir?
+— ValidAudience: Tokenımıza vereceğimiz özel bir bilgidir. 
+  Bu bilgi ile tokenımız oluşacak ve eğer gelen tokendaki bu bilgi farklı ise giriş 
+  işlemi başarısız olacaktır.
+
+— ValidateAudience: Request isteğinde gelen tokenın ValidAudience bilgisinin doğruluğunun kontrol edilip edilmemesi kısmı. Eğer bu özellik false olursa tokenın ValidAudience değerinin bir önemi yoktur.
+
+— ValidIssuer: Tokenın hangi sunucu tarafından oluşturulduğu bilgisinin verildiği kısımdır. Token’a verdiğimiz ekstra güvenlik bilgisi gibi düşünebiliriz.
+
+— ValidateIssuer: Request isteğinde gelen tokenın ValidIssuer bilgisinin doğruluğunun kontrol edilip edilmemesi kısmı. Eğer bu özellik false olursa tokenın ValidIssuer değerinin bir önemi yoktur.
+
+— ValidateLifetime: Tokenın ömrünün(expires) kullanılıp kullanılmayacağının belirlendiği kısımdır. Eğer bu özellik false olursa tokenın ömrünün bir önemi yoktur.
+
+— IssuerSigningKey: Tokenımızı oluştururken kullanacağımız secret keyimizdir. Tokenımızın güvenlik anahtarı diyebiliriz.
+
+— ValidateIssuerSigningKey: Request isteğinde gelen tokenın IssuerSigningKey bilgisinin doğruluğunun kontrol edilip edilmemesi kısmı. Eğer bu özellik false olursa tokenın IssuerSigningKey değerinin bir önemi yoktur.
+
+— ClockSkew: Tokenımızın ömrünün minimum süresinin belirlendiği kısımdır. Default hali 5 dakikadır.
+
+Eğer bu değeri değiştirmezsek ve tokenın ömrünü 5 dakikanın altında olarak ayarlarsak bile token minimum 5 dakika daha yaşamaya devam edecektir.
+

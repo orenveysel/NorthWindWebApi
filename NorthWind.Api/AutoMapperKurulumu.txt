@@ -1,0 +1,5 @@
+﻿1- Nuget Uzerinden AutoMapper Paketi kurulur
+2- Proje icerisinde MapperConfig.cs Dosyasi olurturulur. Isim vermkete ozgursunuz.
+  Ancak bu class mutlaka Profile 'dan inherit almak zorundadir.
+3- builder.Services.AddAutoMapper(typeof(MapperConfig)) ile servis icerisine eklenir.
+4- Kullanimi Controller icerisinde IMapper interface'i constructer'dan istenir.

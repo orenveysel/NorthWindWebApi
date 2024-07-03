@@ -1,0 +1,39 @@
+﻿@model ICollection<OrderDetail>
+
+<div class="card">
+    <div class="card-header">
+        <h3>Siparis Detayi</h3>
+    </div>
+    <div class="card-body">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>OrderId</th>
+                    <th>Product Name</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Discount</th>
+                   
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.OrderId</td>
+                        <td>@item.Product.ProductName</td>
+                        <td>@item.Quantity</td>
+                        <td>@item.UnitPrice</td>
+                        <td>@item.Discount</td>
+                       
+
+                    </tr>
+                }
+
+
+            </tbody>
+        </table>
+        <a asp-action="Index" class="btn btn-success">Listeye Geri Don</a>
+    </div>
+</div>

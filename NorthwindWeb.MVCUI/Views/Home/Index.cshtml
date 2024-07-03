@@ -1,0 +1,84 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="mb-3">
+  <label for="name" class="form-label">Kategori Adi</label>
+  <input type="text" class="form-control" id="name" placeholder="Kategori Adi giriniz">
+</div>
+<div class="mb-3">
+  <label for="description" class="form-label">Aciklama</label>
+  <input  type ="text" class="form-control" id="description" ></input>
+</div>
+
+
+<button class="btn btn-primary" id="btn">Ajax Get</button> 
+<button class="btn btn-success" id="btnpost">Ajax Post</button> 
+
+
+<div class="text-center">
+  
+      <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Decription</th>
+
+            </tr>
+        </thead>
+        <tbody id="tbody">
+
+        </tbody>
+    </table>
+</div>
+
+@section Scripts
+{
+
+    <script>
+        $(document).ready(function(){ // Burasi Dokuman tamamen yuklendiginde devreye girecegini soyler
+          $("#btn").click(function(){ //Id'si btn olan html objesine click olayi oldugunda ne yapacagini bildirir
+            
+              $.get("https://northwind.vercel.app/api/categories", 
+            function(data, status){ // CallBack Function 
+            console.log(data)  
+            for(var i =0;i < data.length;i++)
+            {       
+                var item = data[i];
+                
+                $('#tbody').append(`'<tr>
+                                        <td>${item.id}</td>
+                                         <td>${item.name}</td>
+                                         <td>${item.description}</td>
+                                        </tr>'`);
+            }
+
+            // console.log(data[0].id + ' ' + data[0].name )
+            // console.log(status)
+          
+            });
+          });
+
+          $("#btnpost").click(function(){
+            let name = $("#name").val();
+            let description = $("#description").val();
+            console.log("name:"+name);
+            console.log("description:"+description);
+
+            // let data = {
+            //                 name: ""+name+"",
+            //                 description: ''+description+''
+            //               };
+            let data = {
+                        "name": name,
+                        "description": description
+            };
+           $.post("https://northwind.vercel.app/api/categories",data,function(data, status){
+                alert("Data: " + data + "\nStatus: " + status);
+                });
+          });
+        });
+</script>
+    
+}

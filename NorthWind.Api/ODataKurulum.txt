@@ -1,0 +1,3 @@
+﻿1- Microsoft.AspnetCore.Odata paketi kurulur
+2- builder.Services.AddOdata ile servicelere register edilir
+3- Ilgili Controller daki metodlarin uerine  [EnableQuery] attribute tanimlamasi yapilir

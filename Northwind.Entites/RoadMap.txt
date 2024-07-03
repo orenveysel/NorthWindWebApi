@@ -1,0 +1,5 @@
+﻿1- Microsoft.EntityFrameWorkCore.Design Yuklenecek
+2- Hangi Databasse ile scaffold yapilacak ise o database'nin ilgili paketi kurulacak
+   Burada Microsoft.EntityFrameWorkCore.SqlServer paketi kullanildi
+3- Projenin bir derlenemei dogrudur. 
+4- dotnet ef dbcontext scaffold "Server=.;Database=Northwind;Trusted_Connection=true;TrustServerCertificate=true" Microsoft.EntityFrameWorkCore.SqlServer -o Entities 

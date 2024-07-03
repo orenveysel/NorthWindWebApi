@@ -1,0 +1,34 @@
+﻿@using System.Net.Http;
+@using System.Text.Json;
+@{
+           HttpClient httpClient = new HttpClient(); // HttpClient 
+            httpClient.BaseAddress = new Uri("https://northwind.now.sh/");
+
+            var result = httpClient.GetAsync("api/categories").Result;// Async metodunun direk sonucunu almaya zorlar 
+
+            var jsonString = result.Content.ReadAsStringAsync().Result;
+
+            var categories = JsonSerializer.Deserialize<List<NorthwindWeb.MVCUI.Models.Category>>(jsonString);
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(NorthwindWeb.MVCUI.Models.Category cat in categories)
+        {
+            <tr>
+                <td>@cat.id</td>
+                <td>@cat.Name</td>
+                <td>@cat.description</td>
+
+
+            </tr>
+        }
+    </tbody>
+</table>

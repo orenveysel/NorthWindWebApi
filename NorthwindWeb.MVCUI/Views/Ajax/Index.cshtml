@@ -1,0 +1,32 @@
+﻿@model NorthwindWeb.MVCUI.Models.Category
+
+<form id="categoryForm" action="javascript:void(0)">
+<div class="mb-3">
+  <label for="name" class="form-label">Kategori Adi</label>
+  <input type="text" class="form-control" id="name" name="name" placeholder="Kategori Adi giriniz">
+</div>
+<div class="mb-3">
+  <label for="description" class="form-label">Aciklama</label>
+  <input  type ="text" class="form-control" id="description" name="description" ></input>
+</div>
+<button type="Submit" id="btnSubmit" class="btn btn-success">Kaydet</button>
+</form>
+@section Scripts
+{
+<script type="text/javascript">
+    $("#categoryForm").submit(function(e) {
+    $.ajax({
+           type: "POST",
+           url: '/ajax/KategoryEkle',
+           data: $("#categoryForm").serialize(), // formdaki tüm bilgileri gönder.
+           success: function(data)
+           {
+               alert(data); // Gelen Cevap
+           }
+         });
+
+    e.preventDefault(); //Formun sayfa üzerinde gönderilmemesini sağlar
+    
+    });
+    </script>
+}

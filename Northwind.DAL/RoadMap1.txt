@@ -1,0 +1,5 @@
+﻿1- Entity katmani projete referans olarak verilir
+2- Abstract ve Concrete Klasorleri olusturulur
+3- Abstract Klasorune IRepository Interface'i Eklenir
+4- Concrete klasorune de Repository Class'i eklenip IRepository'den inherit alinir ve implimente edilir.Yani Interface'deki metodlarin govdeleri yazilir
+5- 
