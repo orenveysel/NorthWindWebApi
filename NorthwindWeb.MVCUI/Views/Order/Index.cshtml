@@ -1,4 +1,4 @@
-﻿@model IEnumerable<OrderSelectVM>
+﻿@model List<OrderSelectVM>
 
 <a asp-action="Create" class="btn btn-primary">Yeni Siparis</a>
 <div class="card">
@@ -32,10 +32,13 @@
                         <td>@item.ShipCountry</td>
 
                     </tr>
-                }   
+                }
 
-
+               
             </tbody>
+
         </table>
     </div>
 </div>
+
+

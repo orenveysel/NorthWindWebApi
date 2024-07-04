@@ -5,25 +5,19 @@ using NorthwindWeb.MVCUI.Models;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.JSInterop.Infrastructure;
+using Microsoft.Data.SqlClient;
+
 namespace NorthwindWeb.MVCUI.Controllers
 {
     public class OrderController(NorthwindContext context) : Controller
     {
-        public IActionResult Index()
+        public IActionResult Index(int page = 1, int pageSize = 10)
         {
             /*
-             * select OrderID ,c.CompanyName Customer,(e.FirstName + ' ' + e.LastName) Employee ,
-                 s.CompanyName Shipper,o.OrderDate,o.ShipCity,o.ShipCountry
-                 from Orders o 
-                 inner join Customers c on c.CustomerID=o.CustomerID
-                 inner join Employees e on e.EmployeeID = o.EmployeeID
-                 inner join Shippers s on s.ShipperID =o.ShipVia
-             * 
-             * 
-             * 
-             * 
-             * 
-             */
+           *  ihtiyaç duyacağımız 1 sayfa içerisinde kaç adet satır bulunacak kısmını ise Index methodunun içerisinde parametre olarak barındırıyoruz . Methodun gövdesinde ise PagedList üzerinden instance alıyoruz ve hangi nesne üzerinde çalışması gerektiğini 1 sayfa üzerinde kaç satır veri gözükmesi gerekiyor pagedlist nesnesi içerisine bunları parametre olarak giriyoruz.Methodun dönüş tarafında ise View kısmına yönlendirirken model ile beraber gönderiyoruz ki sayfalama yaptığımız her veriyi taşıyabilelim. Tüm bu aşamaları geçtikten sonra bir adet view eklememiz gerekmekte fakat View eklemeden önce son bir kısım daha var o da ViewImport . Uygulama içerisinde aslında uygulama yerine birden fazla view içerisinde ortak olarak kullanılmasını beklediğimiz directiveleri topladığımız bir yer var orası da ViewImport 
+           * 
+           * 
+           */
 
             #region Metod Syntax
             //var selectVm = context.Orders
@@ -43,8 +37,11 @@ namespace NorthwindWeb.MVCUI.Controllers
             //       }).ToList(); 
             #endregion
 
+
+
+
             #region Query Syntax
-            var result = (from order in context.Orders
+            var result = from order in context.Orders
                           join customer in context.Customers on order.CustomerId equals customer.CustomerId
                           join employee in context.Employees on order.EmployeeId equals employee.EmployeeId
                           join shipper in context.Shippers on order.ShipVia equals shipper.ShipperId
@@ -57,9 +54,11 @@ namespace NorthwindWeb.MVCUI.Controllers
                               OrderDate = order.OrderDate,
                               ShipCity = order.ShipCity,
                               ShipCountry = order.ShipCountry
-                          }).ToList(); 
+                          };
             #endregion
-            return View(result);
+
+            //PagedList<OrderSelectVM> model = new PagedList<OrderSelectVM>(result, page, pageSize);
+            return View("Index", result);
         }
         public IActionResult Create()
         {

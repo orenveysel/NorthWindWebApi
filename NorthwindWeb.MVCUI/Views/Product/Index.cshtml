@@ -1,0 +1,29 @@
+﻿@model IQueryable<Product>
+
+@(Html
+    .Grid(Model)
+    .Build(columns =>
+    {
+        columns.Add(model => model.ProductId)
+                .Titled("Id").Filterable(true).Sortable(true);
+        columns.Add(model => model.ProductName).Titled("Urun Adi").Filterable(true).Sortable(true);
+        columns.Add(model => model.Category.CategoryName)
+        .Titled("Category").Filterable(true).Sortable(true);
+
+        columns.Add(model => model.Supplier.CompanyName)
+        .Titled("Tedarikci").Filterable(true).Sortable(true);
+
+
+        columns.Add(model => model.UnitPrice)
+        .Titled("Fiyat").Formatted("{0:c}").Filterable(true).Sortable(true);
+        columns.Add(model => model.UnitsInStock).Titled("Eldeki Stok Miktari").Filterable(true).Sortable(true);
+    })
+    .Filterable(GridFilterCase.Lower)
+    .Using(GridFilterMode.Header)
+    .Empty("No data found")
+    .Pageable(pager =>
+    {
+        pager.RowsPerPage = 10;
+    })
+    .Sortable()
+)

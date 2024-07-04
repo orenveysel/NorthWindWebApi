@@ -30,6 +30,4 @@ public partial class Customer
     public virtual ICollection<Rental> Rentals { get; set; } = new List<Rental>();
 
     public virtual Store Store { get; set; } = null!;
-
-
 }
