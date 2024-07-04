@@ -11,13 +11,9 @@ namespace NorthwindWeb.MVCUI.Controllers
 {
     public class OrderController(NorthwindContext context) : Controller
     {
-        public IActionResult Index(int page = 1, int pageSize = 10)
+        public IActionResult Index()
         {
-            /*
-           *  ihtiyaç duyacağımız 1 sayfa içerisinde kaç adet satır bulunacak kısmını ise Index methodunun içerisinde parametre olarak barındırıyoruz . Methodun gövdesinde ise PagedList üzerinden instance alıyoruz ve hangi nesne üzerinde çalışması gerektiğini 1 sayfa üzerinde kaç satır veri gözükmesi gerekiyor pagedlist nesnesi içerisine bunları parametre olarak giriyoruz.Methodun dönüş tarafında ise View kısmına yönlendirirken model ile beraber gönderiyoruz ki sayfalama yaptığımız her veriyi taşıyabilelim. Tüm bu aşamaları geçtikten sonra bir adet view eklememiz gerekmekte fakat View eklemeden önce son bir kısım daha var o da ViewImport . Uygulama içerisinde aslında uygulama yerine birden fazla view içerisinde ortak olarak kullanılmasını beklediğimiz directiveleri topladığımız bir yer var orası da ViewImport 
-           * 
-           * 
-           */
+          
 
             #region Metod Syntax
             //var selectVm = context.Orders
@@ -49,7 +45,7 @@ namespace NorthwindWeb.MVCUI.Controllers
                           {
                               OrderId = order.OrderId,
                               Customer = order.Customer.CompanyName,
-                              Employee = order.Employee.FirstName + " " + order.Employee.LastName,
+                              Employee = order.Employee.FirstName + " " +       order.Employee.LastName,
                               Shipper = order.ShipViaNavigation.CompanyName,
                               OrderDate = order.OrderDate,
                               ShipCity = order.ShipCity,
@@ -57,7 +53,7 @@ namespace NorthwindWeb.MVCUI.Controllers
                           };
             #endregion
 
-            //PagedList<OrderSelectVM> model = new PagedList<OrderSelectVM>(result, page, pageSize);
+            
             return View("Index", result);
         }
         public IActionResult Create()
