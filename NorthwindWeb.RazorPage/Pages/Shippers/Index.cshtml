@@ -1,0 +1,30 @@
+﻿@page
+@model NorthwindWeb.RazorPage.Pages.Shippers.IndexModel
+
+
+<a asp-area="" asp-page="/Privacy" class="btn btn-primary">Privacy</a>
+<a asp-area="" asp-page="/Index" class="btn btn-primary">Home</a>
+<a asp-page="./Create" class="btn btn-primary">Yeni Kayit</a>
+<table class="table table-hover">
+    <thead>
+        <tr> 
+            <td>ShipperId</td>
+            <td>CompanyName</td>
+            <td>Phone</td>
+
+        </tr>
+
+    <tbody>
+        @foreach (var item in Model.Shippers)
+        {
+            <tr>
+                <td>@item.ShipperId</td>
+                <td>@item.CompanyName</td>
+                <td>@item.Phone</td>
+                <td><a asp-area="" asp-page="./Update" asp-route-itemid="@item.ShipperId" class="btn btn-success">Edit</a></td>
+            </tr>
+                
+        }
+    </tbody>
+    </thead>
+</table>

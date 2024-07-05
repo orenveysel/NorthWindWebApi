@@ -1,0 +1,31 @@
+﻿@page
+@model NorthwindWeb.RazorPage.Pages.Shippers.CreateModel
+@{
+}
+<div class="card">
+    <div class="card-header">
+        <h2>Yeni Kargo Sirketi</h2>
+    </div>
+    <div class="card-body">
+        <form method="post">
+            <div class="row">
+                <div class="col-md-6">
+                    <label asp-for="Shipper.CompanyName">Company Name</label>
+                </div>
+                <div class="col-md-6">
+                    <input asp-for="Shipper.CompanyName" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <label asp-for="Shipper.Phone">Phone</label>
+                </div>
+                <div class="col-md-6">
+                    <input asp-for="Shipper.Phone" />
+                </div>
+            </div>
+
+            <button type="submit">Kaydet</button>
+        </form>
+    </div>
+</div>

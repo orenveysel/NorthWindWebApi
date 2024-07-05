@@ -22,7 +22,7 @@ namespace NorthwindWeb.MVCUI.Controllers
            
 
 
-            return View(orders);
+            return View();
         }
     }
 }

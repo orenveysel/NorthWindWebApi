@@ -3,17 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35017.193
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NorthWind.Api", "NorthWind.Api\NorthWind.Api.csproj", "{7D5E9A42-A60E-4832-94A1-4AE8CB1BBCFF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NorthWind.Api", "NorthWind.Api\NorthWind.Api.csproj", "{7D5E9A42-A60E-4832-94A1-4AE8CB1BBCFF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NorthwindApi.Console", "NorthwindApi.Console\NorthwindApi.Console.csproj", "{F0F1B7E5-6641-4D7D-86A3-74AC48C1A58B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NorthwindApi.Console", "NorthwindApi.Console\NorthwindApi.Console.csproj", "{F0F1B7E5-6641-4D7D-86A3-74AC48C1A58B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NorthwindWeb.MVCUI", "NorthwindWeb.MVCUI\NorthwindWeb.MVCUI.csproj", "{99525B57-320C-492B-BC9D-7BFDAF4D4C3E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NorthwindWeb.MVCUI", "NorthwindWeb.MVCUI\NorthwindWeb.MVCUI.csproj", "{99525B57-320C-492B-BC9D-7BFDAF4D4C3E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Northwind.Entites", "Northwind.Entites\Northwind.Entites.csproj", "{C26DEC12-D348-4B6B-A8A5-876FC4C9D9A0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Northwind.Entites", "Northwind.Entites\Northwind.Entites.csproj", "{C26DEC12-D348-4B6B-A8A5-876FC4C9D9A0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Northwind.DAL", "Northwind.DAL\Northwind.DAL.csproj", "{EC46DBC7-7C21-4DA0-9012-6492260149BE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Northwind.DAL", "Northwind.DAL\Northwind.DAL.csproj", "{EC46DBC7-7C21-4DA0-9012-6492260149BE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Northwind.BL", "Northwind.BL\Northwind.BL.csproj", "{6AEFC185-7607-45AD-BF9F-5C1D8D27D4EB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Northwind.BL", "Northwind.BL\Northwind.BL.csproj", "{6AEFC185-7607-45AD-BF9F-5C1D8D27D4EB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NorthwindWeb.RazorPage", "NorthwindWeb.RazorPage\NorthwindWeb.RazorPage.csproj", "{8C5A275E-729A-4FB0-B662-3077DF625340}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{6AEFC185-7607-45AD-BF9F-5C1D8D27D4EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6AEFC185-7607-45AD-BF9F-5C1D8D27D4EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6AEFC185-7607-45AD-BF9F-5C1D8D27D4EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C5A275E-729A-4FB0-B662-3077DF625340}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C5A275E-729A-4FB0-B662-3077DF625340}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C5A275E-729A-4FB0-B662-3077DF625340}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C5A275E-729A-4FB0-B662-3077DF625340}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

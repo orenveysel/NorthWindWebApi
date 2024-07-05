@@ -1,0 +1,29 @@
+﻿@page
+@model NorthwindWeb.RazorPage.Pages.Orders.IndexGridModel
+@{
+    Layout = null;
+}
+@(Html
+    .Grid(Model.Orders)
+    .Build(columns =>
+    {
+        columns.Add(model => model.OrderId).Titled("Order Id").Filterable(true).Sortable(true);
+        columns.Add(model => model.OrderDate).Titled("OrderDate")
+        .Filterable(true).Sortable(true).Formatted("{0:d}");
+        columns.Add(model => model.Customer.CompanyName).Titled("Musteri").Filterable(true).Sortable(true);
+
+        columns.Add(model => model.Employee.FirstName + " " + model.Employee.LastName).Titled("Siparisi Alan");
+        columns.Add(model => model.ShipViaNavigation.CompanyName).Titled("Kargo").Filterable(true).Sortable(true);
+        columns.Add(model => model.ShipCity).Titled("Sehir").Filterable(true).Sortable(true);
+        columns.Add(model => model.ShipCountry).Titled("Ulke").Filterable(true).Sortable(true);
+
+    })
+    .Empty("No data found")
+    .Pageable(pager =>
+    {
+        pager.PagesToDisplay = 10;
+        pager.RowsPerPage = 10;
+    })
+    .Filterable()
+    .Sortable()
+)
